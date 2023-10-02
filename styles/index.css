@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-white: #fafafa;
+  --main-black: #020305;
+  --main-gray: #979797;
+  --red-gradient: linear-gradient(90deg, #e52d27 0%, #b31217 100%);
+  --purple-gradient: linear-gradient(90deg, #da22ff 30.83%, #9733ee 49.68%);
+  --blue-gradient: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  --yellow-gradient: linear-gradient(90deg, #f7971e 28.14%, #ffd200 83.14%);
+}
+
+a {
+  color: var(--main-white);
+  text-decoration: none;
+}
+body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: clamp(16px, 3vw, 20px);
+  font-family: 'Manrope', 'sans-serif';
+  background-color: var(--main-black);
+  color: var(--main-white);
+}
+
+.card {
+  cursor: pointer;
+  border: 2px solid var(--main-gray);
+  border-radius: 32px;
+  margin-bottom: 48px;
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  align-items: start;
+  row-gap: 20px;
+  max-width: 900px;
+  column-gap: 10px;
+  grid-template-areas:
+    'pic head'
+    'pic text';
+  grid-template-columns: 2fr 5fr;
+  grid-template-rows: 2fr 3fr;
+}
+
+.card-reverse {
+  column-gap: 0px;
+  padding-left: 36px;
+  grid-template-areas:
+    'head pic'
+    'text pic';
+  grid-template-columns: 5fr 2fr;
+}
+
+.card-picture {
+  display: flex;
+  justify-content: center;
+  grid-area: pic;
+}
+
+.card-header {
+  display: flex;
+  align-self: flex-end;
+  font-size: clamp(18px, 3vw, 24px);
+  grid-area: head;
+  font-weight: 700;
+}
+
+.card-plaintext {
+  color: var(--main-gray);
+  grid-area: text;
+}
+
+.icon {
+  max-width: 100%;
+  height: auto;
+}
+
+.grad-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.wb-text {
+  background-image: var(--purple-gradient);
+}
+
+.money-text {
+  background-image: var(--yellow-gradient);
+}
+
+.q-and-a-text {
+  background-image: var(--blue-gradient);
+}
+
+.blog-text {
+  background-image: var(--red-gradient);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  aspect-ratio: 3/2;
+  font-size: clamp(20px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--main-white);
+  background-image: url(../images/bicycle.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.header > p {
+  margin-top: 5%;
+}
+
+.messanger-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  width: 100%;
+  max-width: 900px;
+}
+
+.messanger-container > p {
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+.messanger {
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 5fr 2fr;
+  margin-top: 20px;
+  padding: 24px;
+  border: 2px solid var(--main-gray);
+  border-radius: 28px;
+  width: 100%;
+  height: auto;
+}
+
+.card:not(:hover),
+.messanger:not(:hover) {
+  transition: 0.4s ease;
+  transform: translateY(0px);
+}
+
+.card:hover,
+.messanger:hover {
+  background-color: #121212;
+  transition: 0.4s ease;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 767px) {
+  .card {
+    row-gap: 0;
+    margin-bottom: 10%;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .card-picture {
+    width: 50%;
+    height: auto;
+  }
+
+  .card-header {
+    align-self: center;
+    text-align: center;
+    padding: 0 0 2% 0;
+  }
+
+  .card-plaintext {
+    text-align: center;
+  }
+}
